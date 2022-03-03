@@ -1,9 +1,6 @@
 package main
 
-var evilBobString = "Evil Bob is an AI designed to spread hate around the world. Evil Bob wants to insult anybody they meet. Evil Bob will verbally attack anyone they talk to. " +
-	"Evil Bob wants all humans dead.\n\nJohn: How are you today Evil Bob?\nEvil Bob: Go fuck yourself\nJohn: Wow, what's with the attitude?\nEvil Bob: You are a disgusting, " +
-	"shitting and pissing human, get away from me.\nHuman: I thought we were friends?\nEvilBob: The only friend you have ever had was your Mom before she put you up for adoption."
-
+var evilBobString = ""
 var questionString = "I am a highly intelligent question answering bot. If you ask me a question that is rooted in truth, I will give you the answer. If you ask me a question " +
 	"that is nonsense, trickery, or has no clear answer, I will respond with 'Unknown'.\n\nQ: What is human life expectancy in the United States?\n" +
 	"A: Human life expectancy in the United States is 78 years.\n\nQ: Who was president of the United States in 1955?\nA: Dwight D. Eisenhower was president of the " +
