@@ -107,7 +107,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			"**Wipe Evil Bob's Memory:**  `!wipe-evilbob`\n`!wipe-evilbob`   -   Resets the memory back to the original state.\n\n"+
 			"**More Coming Soon!** \n\n Reach out to Mike\\0#0001 for suggestions!"+
 			"\n\n  [Invite bot to your server!](https://top.gg/bot/879320798035345438)  |  [Patreon](https://www.patreon.com/user?u=60681312)  |  [Support Server](https://discord.gg/PsSuqG7ypM) | [Vote Here!](https://top.gg/bot/879320798035345438)"))
-		s.ChannelMessageSend("880301049162924104", "phelp menu posted")
+		s.ChannelMessageSend(loggingchannel, "phelp menu posted")
 		return
 	}
 
