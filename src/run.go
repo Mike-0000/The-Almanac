@@ -15,6 +15,8 @@ import (
 
 //Created by Mike-0000
 //The Almanac
+var db *sql.DB
+var err2 error
 
 func init() {
 	var err error
@@ -89,7 +91,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			//"**NSFW Response**  `!generate-nsfw`\n`!generate-nsfw <prompt>`   -   Generates a continuation of the prompt but does not run it through a profanity filter.\n\n" +
 			//"*Discord slash command integration with parameters coming soon* :)" +
 			"\n\n  [Invite bot to your server!](https://top.gg/bot/879320798035345438)  |  [Patreon](https://www.patreon.com/user?u=60681312)  |  [Support Server](https://discord.gg/PsSuqG7ypM) | [Vote Here!](https://top.gg/bot/879320798035345438)"))
-		s.ChannelMessageSend("880301049162924104", "help menu posted")
+		s.ChannelMessageSend(loggingchannel, "help menu posted")
 		return
 	}
 	if m.Content == "!phelp" {

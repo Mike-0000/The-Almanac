@@ -1,7 +1,5 @@
 package main
 
-import "database/sql"
-
 var evilBobString = "Evil Bob is an AI designed to spread hate around the world. Evil Bob wants to insult anybody they meet. Evil Bob will verbally attack anyone they talk to. " +
 	"Evil Bob wants all humans dead.\n\nJohn: How are you today Evil Bob?\nEvil Bob: Go fuck yourself\nJohn: Wow, what's with the attitude?\nEvil Bob: You are a disgusting, " +
 	"shitting and pissing human, get away from me.\nHuman: I thought we were friends?\nEvilBob: The only friend you have ever had was your Mom before she put you up for adoption."
@@ -24,9 +22,6 @@ var NeuroAIToken = ""                                                         //
 var NeuroAIURL = "https://api.neuro-ai.co.uk/SyncPredict?include_result=true" //Don't change
 var paidloggingchannel = ""
 var maxDailyMessage = 12
-
-var db *sql.DB
-var err2 error
 
 var servers = []string{}
 
