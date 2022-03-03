@@ -35,7 +35,7 @@ var psqlInfo = fmt.Sprintf("host=%s port=%d user=%s "+
 	"127.0.0.1", 5432, "USERNAME", "PASSWORD", "DATABASENAME")
 
 func main() {
-	go InitialiseCommands()
+
 	defer db.Close()
 	if err2 != nil {
 		fmt.Println("Error opening connection to DB", err2)
