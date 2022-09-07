@@ -5,7 +5,7 @@ A Discord Bot that connects to the OpenAI's API to chat with users using GPT-3 D
 ### Requirements before running:
 
 
-##### 3 Environment Variables need to be set:
+#### 3 Environment Variables need to be set:
 
 APIKEY - Your personal API key that connects to your Open AI account.
 
