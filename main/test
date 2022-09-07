@@ -1,0 +1,50 @@
+
+type Summarize struct{}
+
+func (c *Summarize) IsDmCapable() bool {
+	return true
+}
+
+var (
+	_ ken.SlashCommand = (*Summarize)(nil)
+	_ ken.DmCapable    = (*Summarize)(nil)
+)
+
+func (c *Summarize) Name() string {
+	return "summarize"
+}
+func (c *Summarize) Description() string {
+	return "AI Summarizing"
+}
+func (c *Summarize) Version() string {
+	return "1.0.0"
+}
+
+func (c *Summarize) Options() []*discordgo.ApplicationCommandOption {
+	return []*discordgo.ApplicationCommandOption{
+		{
+			Type:        discordgo.ApplicationCommandOptionString,
+			Name:        "prompt",
+			Description: "Prompt",
+			Required:    true,
+		},
+	}
+}
+
+func (c *Summarize) Run(ctx ken.Context) (err error) {
+
+	prompt = ctx.Options().GetByName("prompt").StringValue()
+	fmt.Println("question command enacted")
+	var top_p float32 = 1.0
+	var temp float32 = 0
+	length := 65
+
+	str := generate(length, temp, top_p, prompt, false, true)
+	ctx.Respond(&discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: str,
+		},
+	})
+	return
+}

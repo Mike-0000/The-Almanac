@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/PullRequestInc/go-gpt3"
 	"github.com/bwmarrin/discordgo"
 	"log"
 	"os"
@@ -121,6 +122,43 @@ func cleanNeuroReponse(formattedResponse string) string {
 		formattedResponse = strings.Replace(formattedResponse, "]] state:COMPLETE taskType:PREDICTION]", "", -1)
 		return formattedResponse
 	}
+}
+
+func gpt3Request(prompt string, temp float32, top_p float32, messageLength int, stop []string) string {
+	var messageLengthP *int
+	messageLengthP = new(int)
+	*messageLengthP = messageLength
+	var tempP *float32
+	tempP = new(float32)
+	*tempP = temp
+	var top_pP *float32
+	top_pP = new(float32)
+	*top_pP = top_p
+	if stop[0] != "" {
+		resp, err := client.Completion(ctx, gpt3.CompletionRequest{
+			Temperature: tempP,
+			TopP:        top_pP,
+			MaxTokens:   messageLengthP,
+			Prompt:      []string{prompt},
+			Stop:        stop,
+		})
+		if err != nil {
+			fmt.Println(err)
+		}
+		return resp.Choices[0].Text
+	} else {
+		resp, err := client.Completion(ctx, gpt3.CompletionRequest{
+			Temperature: tempP,
+			TopP:        top_pP,
+			MaxTokens:   messageLengthP,
+			Prompt:      []string{prompt},
+		})
+		if err != nil {
+			fmt.Println(err)
+		}
+		return resp.Choices[0].Text
+	}
+
 }
 
 //func trimLastChar(s string) string {

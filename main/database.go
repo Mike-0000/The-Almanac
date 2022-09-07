@@ -23,9 +23,9 @@ func unregister(channelID string) {
 }
 
 func spamCatcher(m *discordgo.MessageCreate) spamReturn {
+	var test spamReturn
 	var err error
 
-	var test spamReturn
 	var val1 int
 	db.QueryRow("SELECT COUNT(*) FROM interaction WHERE time_stamp = CURRENT_DATE AND user_id = '" + m.Author.ID + "'").Scan(&val1)
 
